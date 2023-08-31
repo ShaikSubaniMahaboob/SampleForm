@@ -1,0 +1,7 @@
+C:\Sample_Project\SampleForm\SampleForm\obj\Debug\net5.0\SampleForm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Sample_Project\SampleForm\SampleForm\obj\Debug\net5.0\SampleForm.AssemblyInfoInputs.cache
+C:\Sample_Project\SampleForm\SampleForm\obj\Debug\net5.0\SampleForm.AssemblyInfo.cs
+C:\Sample_Project\SampleForm\SampleForm\obj\Debug\net5.0\SampleForm.csproj.CoreCompileInputs.cache
+C:\Sample_Project\SampleForm\SampleForm\obj\Debug\net5.0\SampleForm.MvcApplicationPartsAssemblyInfo.cache
+C:\Sample_Project\SampleForm\SampleForm\obj\Debug\net5.0\SampleForm.RazorAssemblyInfo.cache
+C:\Sample_Project\SampleForm\SampleForm\obj\Debug\net5.0\SampleForm.RazorAssemblyInfo.cs

@@ -1,0 +1,74 @@
+﻿@model IEnumerable<CreateForm>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="row">
+    @foreach (CreateForm createform in Model)
+
+    {
+        <div class="col-lg-3 mt-3">
+            <div class="card text-white bg-primary" style="max-width: 18rem;">
+              @*   @Html.ActionLink("Edit", "CreateForm", "Home", new { @Id = createform.ID }) *@
+                <div class="card-header ">@Html.ActionLink("Edit", "CreateForm", "Home",  new { @Id = createform.ID}  ,  new { @class = "text-white" })@* @createform.Name *@</div>
+                <div class="card-body">
+                    <h5 >@createform.Name</h5>
+                    <h5 >@createform.Gender</h5>
+                    <h5 >@createform.Skills</h5>
+                    <h5 >@createform.Description</h5>
+                    <p >@createform.Isverify.</p>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+<br></br>
+<br></br>
+
+<div>
+    <div style="text-align:right">
+
+        <button class="btn-primary" onclick="location.href='@Url.Action("CreateForm","Home")'" data-toggle="modal" data-target="#exampleModal">Create Form</button>
+    </div>
+</div>
+
+<br></br>
+
+<table cellpadding="0" cellspacing="0" class="table-responsive  table table-bordered">
+    <thead>
+        <tr>
+
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Skills</th>
+            <th>Description</th>
+            <th>Isverify</th>
+            <th>
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @foreach (CreateForm createform in Model)
+        {
+            <tr>
+
+                <td>
+                    @createform.Name
+                    @Html.Hidden("hdnId", createform.ID)
+                </td>
+                <td>@createform.Gender</td>
+                <td>@createform.Skills</td>
+                <td>@createform.Description</td>
+                <td>@createform.Isverify</td>
+
+                <td>@Html.ActionLink("Edit", "CreateForm", "Home", new { @Id = createform.ID } /* ,new { @class = "" } */ )</td>
+                <td>@Html.ActionLink("Delete", "Delete", "Home", new { @Id = createform.ID })</td>
+            </tr>
+        }
+    </tbody>
+</table>

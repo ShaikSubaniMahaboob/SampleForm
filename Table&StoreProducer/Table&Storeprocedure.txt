@@ -1,0 +1,109 @@
+CREATE TABLE [dbo].[CreateForm](
+	[Name] [nvarchar](50) NULL,
+	[Gender] [varchar](50) NULL,
+	[Skills] [int] NULL,
+	[Description] [nvarchar](50) NULL,
+	[isverify] [nvarchar](50) NULL,
+	[ID] [int] IDENTITY(1,1) NOT NULL
+) ON [PRIMARY]
+GO
+
+---------------------
+Create procedure [dbo].[GetDataById]           
+(            
+   @Id int            
+)            
+as             
+begin            
+   select * from  CreateForm   where ID=@Id            
+End  
+GO
+--------------------
+CREATE procedure [dbo].[spAddStudent]          
+(          
+@Id int,
+    @Name NVARCHAR(50),           
+    @Gender varchar(50),          
+    @Skills INT,          
+    @Description NVARCHAR(50),  
+    @isverify NVARCHAR(50)          
+)          
+as           
+Begin        
+if(@Id=0)
+begin 
+Insert into CreateForm ([Name],Gender,Skills, [Description],isverify)           
+    Values (@Name,@Gender,@Skills, @Description,@isverify)      
+end
+else
+begin 
+   Update CreateForm             
+   set Name=@Name,            
+   Gender=@Gender,            
+   Skills=@Skills,          
+   Description=@Description,   
+   isverify=@isverify            
+   where ID=@Id 
+   end
+         
+End  
+GO
+---------------------------
+CREATE procedure [dbo].[spDeleteCreateForm]       
+(            
+   @Id int           
+)            
+as             
+begin            
+   Delete from CreateForm where Id=@Id           
+End  
+GO
+--------------------------------
+
+CREATE procedure [dbo].[spGetAllCreateform]       
+as        
+Begin        
+    select *        
+    from CreateForm     
+    order by ID   
+End  
+GO
+----------------------------------
+
+CREATE procedure [dbo].[spUpdateCreateForm]         
+(    
+@ID int,
+    @Name NVARCHAR(50),           
+    @Gender bit,          
+    @Skills INT,          
+    @Description NVARCHAR(50),  
+    @isverify NVARCHAR(50)         
+)            
+as            
+begin            
+   Update CreateForm             
+   set Name=@Name,            
+   Gender=@Gender,            
+   Skills=@Skills,          
+   Description=@Description,   
+   isverify=@isverify            
+   where ID=@ID          
+End  
+GO
+--------------------------------------
+select * from tbl_costingcalculation
+exec dbo.USP_Setcostingcalculation 1,50, 20,22,55,1,1,1
+Alter Procedure [dbo].[USP_Setcostingcalculation](
+@fld_dealtrackerId int,
+@fld_InitialCost int,
+@fld_TP int,
+@fld_Opex int,
+@fld_TotalCost int,
+@fld_IsActive bit,
+@fld_CreatedBy int, 
+@fld_ModifiedBy int )
+as begin
+    Insert into tbl_costingcalculation(fld_dealtrackerId, fld_InitialCost, fld_TP, fld_Opex, fld_TotalCost,
+	fld_IsActive, fld_CreatedBy, fld_CreatedDate, fld_ModifiedBy, fld_ModifiedDate)
+    Values(@fld_dealtrackerId, @fld_InitialCost, @fld_TP, @fld_Opex, @fld_TotalCost, @fld_IsActive,
+	@fld_CreatedBy, GETDATE(), @fld_ModifiedBy,GETDATE())

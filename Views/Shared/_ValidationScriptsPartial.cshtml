@@ -1,0 +1,39 @@
+﻿<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+<style>
+    .swal2-content {
+        max-height: 6em; /* To be adjusted as you like */
+        overflow-y: scroll;
+        width: 100%;
+    }
+</style> 
+    @if (TempData["success"] != null) {
+        // swal("Create Data", {
+        //     dangerMode: true,
+        //     buttons: true,
+        // });
+            <script type="text/javascript" >
+                swal("Successfully saved!", '@TempData["success"]', "success");
+
+    </script>
+    }
+
+@if (TempData["success1"] != null)
+{
+   
+    <script type="text/javascript">
+        swal("Successfully Deleted!", '@TempData["success1"]', "success");
+
+    </script>
+}
+@if (TempData["update"] != null)
+{
+
+    <script type="text/javascript">
+        swal("Successfully updated!", '@TempData["update"]', "success");
+
+    </script>
+} 

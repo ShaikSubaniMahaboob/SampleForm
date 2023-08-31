@@ -1,0 +1,249 @@
+﻿@model SampleForm.Models.CreateForm
+
+
+@{
+
+}
+
+@*
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="CreateForm">
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+
+            </div>
+
+            <div class="form-group">
+                <label  class="control-label">Name </label>
+                <input class="form-control" name="Name" type="text" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Gender </label>
+                <input type="radio" name="Gender" value="1" />Male
+                <input type="radio" name="Gender" value="0" />Female
+            </div>
+            <div class="form-group">
+                <label class="control-label">Skills</label>
+
+
+                <select name="Skills">
+                    <option selected disabled>Skills</option>
+                    <option value="1">.Net</option>
+                    <option value="2">Java</option>
+                    <option value="3">python</option>
+
+                </select>
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Description</label>
+                <textarea class="form-control" name="Description" ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label  class="control-label">Isverified</label>
+
+
+                <select name="Isverify">
+                    <option selected disabled>IsVeified</option>
+                    <option>Verified</option>
+                    <option>NotVerified</option>
+                </select>
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save User Details" class="btn btn-primary" />
+            </div>
+            <b>@ViewBag.message</b>
+
+        </form>
+    </div>
+
+    <div class="col-lg-12">
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Skills</th>
+                <th>Description</th>
+                <th>Isverify</th>
+            </tr>
+            @foreach (CreateForm createform in Model)
+            {
+                <tr>
+                    <td>@createform.Name</td>
+                    <td>@createform.Gender</td>
+                    <td>@createform.Description</td>
+                    <td>@createform.Skills</td>
+                    <td>@createform.Isverify</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+ *@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" id="btnmodal" data-toggle="modal" data-target="#exampleModal">
+    Create Form
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create Form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                 
+                    <div class="row ">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                                <div class="card-body p-4 p-md-5">
+                                    <h3 class="mb-3 pb-2 pb-md-0 mb-md-5"></h3>
+                                    <form asp-action="CreateForm">
+
+                                        <div class="row">
+                                            <div class="col-md-12 mb-3">
+
+                                                <div class="form-outline row">
+                                                    <input type="hidden" name="ID" asp-for="ID"></input>
+                                                    <label class="form-label col-md-4" for="firstName">Name</label>
+                                                    <input type="text" id="Name" asp-for="Name" class=" form-control-md col-md-6" name="Name" />
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-md-12 mb-3">
+                                                <div class="form-outline row ">
+                                                    <h6 class="mb-2 pb-1 col-md-4">Gender: </h6>
+
+
+                                                    <div class="col-md-8">
+                                                        <div class="form-check form-check-inline ">
+                                                            <input class="form-check-input" type="radio" name="Gender" id="femaleGender"
+                                                                   value="Female" checked />
+                                                            <label class="form-check-label" asp-for="Gender" for="femaleGender">Female</label>
+                                                        </div>
+
+
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="Gender" id="maleGender"
+                                                                   value="Male" />
+                                                            <label class="form-check-label" asp-for="Gender" for="maleGender">Male</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row ">
+                                            <div class="col-md-12 mb-3 pb-2">
+
+                                                <div class="form-outline row">
+
+                                                    <label class="form-label col-md-4" for="Description">Description</label>
+                                                    <input type="text" id="Description" asp-for="Description" class=" form-control-md col-md-6" name="Description" />
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12 mb-3">
+                                                <div class=" row">
+                                                    <label class="form-label select-label col-md-4">Skills</label>
+                                                    <select asp-for="Skills" class="select form-control-md col-md-6" name="Skills">
+                                                        <option selected disabled>Choose option</option>
+                                                        <option value="1">.Net</option>
+                                                        <option value="2">Java</option>
+                                                        <option value="3">python</option>
+
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 mb-3">
+                                                <div class="row">
+                                                    <label asp-for="Isverify" class="form-label select-label col-md-4">Isverify</label>
+                                                    <select class="select form-control-md col-md-6" asp-for="Isverify" name="Isverify">
+                                                        <option selected disabled>IsVeified</option>
+                                                        <option>Verified</option>
+                                                        <option>NotVerified</option>
+                                                    </select>
+
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+                                      
+                                        <div class="row">
+                                            <div class="col-lg-12 text-right">
+                                            <input class="btn btn-primary btn-lg" type="submit" value="Submit" @* onclick="return Confirmmessage()" *@ />
+
+                                            <a class=" btn btn-dark btn-lg" href="/Home/Index">Cancel</a>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <div class="col-lg-12">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                 
+               
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+
+        $("#btnmodal").click();
+        // swal("Hello world!");
+         // function Confirmmessage() {
+         //     var alert = confirm("Are you sure want to create user?");
+         //     if (alert) {
+         //         return true;
+         //     } else {
+         //         return false;
+         //     }
+         // }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
